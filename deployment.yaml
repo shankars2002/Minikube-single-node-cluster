@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lucky-otter-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: lucky-otter
+  template:
+    metadata:
+      labels:
+        app: lucky-otter
+    spec:
+      containers:
+      - name: lucky-otter
+        image: 1209006/lucky-otter-15:latest
+        ports:
+        - containerPort: 5000
